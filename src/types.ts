@@ -1,0 +1,1 @@
+export type T_vec3 = [number, number, number]
