@@ -15,3 +15,9 @@ declare interface SFColor {
     g: number,
     b: number
 }
+declare interface Quaternion {
+    x: number,
+    y: number, 
+    z: number,
+    w: number
+}

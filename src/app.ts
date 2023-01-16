@@ -36,9 +36,10 @@ for(const [row_idx, row] of text_arr.entries()){
 // Generate lane of road tiles
 let pos = 0;
 const props : T_PROPS = {
-    acceleration_max: 0.01,
+    acceleration: 0.009,
     friction_max: 0.005,
-    steering_angle_max: Math.PI/1000
+    steering_angle_max: Math.PI/24,
+    steering_angle_delta: Math.PI/100
 } 
 const car = new Car({x:0,y:2,z:0}, {x:1,y:1,z:1.5}, {r:0,g:0,b:1}, props)
 

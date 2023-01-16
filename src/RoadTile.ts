@@ -1,7 +1,6 @@
 import ParkingLotObject from "./ParkingLotObject"
 
 
-
 class RoadTile extends ParkingLotObject{
    
 

@@ -1,5 +1,4 @@
 
-
 class ParkingLotObject{
     protected element : HTMLElement
 
@@ -14,6 +13,14 @@ class ParkingLotObject{
     public set_position = (position : SFVec3f) : void => {
         this.element.setFieldValue("translation", position)
     } 
+
+    public get_rotation = () : Quaternion => {
+        return this.element?.getFieldValue("rotation")
+    }
+
+    public set_rotation = (value : Quaternion) => {
+        this.element.setAttribute("rotation", `${value.x} ${value.y} ${value.z} ${value.w}`)
+    }
 
     public get_scale = () : SFVec3f => {
         return this.element?.getFieldValue("scale")
