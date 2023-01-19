@@ -15,7 +15,19 @@ module.exports = {
         test: /\.ts$/,
         use: 'ts-loader',
         exclude: /node_modules/
-      }
+      },
+      {
+        test: /\.txt$/i,
+        use: 'raw-loader',
+      },
+      {
+        test: /\.(png|jpe?g|gif|x3d)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+          },
+        ],
+      },
     ]
   },
   resolve: {

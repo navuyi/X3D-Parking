@@ -1,5 +1,6 @@
 
 declare module "*.txt"
+declare module "*.x3d"
 
 declare interface HTMLElement {
     getFieldValue : Function,

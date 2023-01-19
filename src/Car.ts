@@ -53,6 +53,7 @@ class Car extends ParkingLotObject{
         this.apply_velocity()
         this.apply_friction()
         this.apply_steering()
+        this.apply_car_rotation()
     }
 
     private apply_acceleration = () => {
@@ -69,13 +70,12 @@ class Car extends ParkingLotObject{
         tmp.x += Math.sin(this.steering_angle) * this.velocity //this.vector.x * this.velocity
         tmp.z += Math.cos(this.steering_angle) * this.velocity //this.vector.z * this.velocity
         this.set_position(tmp)
+    }
 
+    private apply_car_rotation = () => {
         const rotation = this.get_rotation()
         rotation.y = 1
         rotation.w = this.steering_angle
-        console.log(rotation)
-        console.log(this.get_scale())
-        
         this.set_rotation(rotation)
     }
 
@@ -104,7 +104,7 @@ class Car extends ParkingLotObject{
     //this.vector.z = this.vector.x*Math.sin(angle) + this.vector.z*Math.cos(angle)
 
     private apply_steering = () : void => {
-        if(Math.abs(this.velocity) > 0){
+        if(Math.abs(this.velocity) > 0.01){
             if(this.input.left){
                 this.steering_angle += this.steering_angle_delta
             }

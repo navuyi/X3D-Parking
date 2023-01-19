@@ -1,25 +1,29 @@
+import ParkTile from "./ParkTile"
+import SpaceTile from "./SpaceTile"
+import RoadTile from "./RoadTile"
 
 class ParkingLotObject{
     protected element : HTMLElement
 
     constructor(position: SFVec3f, scale:SFVec3f, color:SFColor, type: "box" | "sphere"){  
-       this.element = this.create_element(position, scale, color, type)
-       document.getElementById("scene")?.appendChild(this.element)
+        this.element = this.create_element(position, scale, color, type)
+        document.getElementById("scene")?.appendChild(this.element)
     }
 
     public get_position = () : SFVec3f => {
-        return this.element?.getFieldValue("translation")
+        return this.element.getFieldValue("translation")
     }
     public set_position = (position : SFVec3f) : void => {
         this.element.setFieldValue("translation", position)
     } 
 
     public get_rotation = () : Quaternion => {
-        return this.element?.getFieldValue("rotation")
+        return this.element.getFieldValue("rotation")
     }
 
     public set_rotation = (value : Quaternion) => {
         this.element.setAttribute("rotation", `${value.x} ${value.y} ${value.z} ${value.w}`)
+        //this.element.setFieldValue("rotation", value)
     }
 
     public get_scale = () : SFVec3f => {
@@ -35,7 +39,7 @@ class ParkingLotObject{
     }
     public set_color = (color : SFColor) => {
         const material = this.element?.getElementsByTagName("material")[0] as HTMLElement
-        material.setFieldValue("diffuseColor", color)
+        material.setAttribute("diffuseColor", `${color.r} ${color.g} ${color.b}`)
     }
 
     private create_element = (position:SFVec3f, scale:SFVec3f, color:SFColor, type : string) : HTMLElement => {

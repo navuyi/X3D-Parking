@@ -25,6 +25,14 @@ module.exports = {
         test: /\.txt$/i,
         use: 'raw-loader',
       },
+      {
+        test: /\.(png|jpe?g|gif|x3d)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ]
   },
   resolve: {
